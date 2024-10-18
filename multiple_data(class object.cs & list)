@@ -1,0 +1,57 @@
+namespace my_app
+{
+
+    class program
+    {
+
+        static List<Student> list_name = new List<Student>();
+        static void Main()
+        {
+            while (true)
+            {
+                Console.WriteLine("1.Add Student \n 2.Show Student");
+                int user_input = Convert.ToInt32(Console.ReadLine());
+
+                if (user_input == 1)
+                {
+                    Student.add_data();                    
+                }
+                else
+                {
+                    Student.show_data();
+
+                }
+            }
+        }
+
+        class Student {
+            public int id { get; set; }
+            public string name { get; set; }
+           public static void add_data(){
+
+                Student std = new Student();
+
+                Console.WriteLine("Enter Your Id");
+                std.id = Convert.ToInt32 (Console.ReadLine());
+
+                Console.WriteLine("Enter Your Name");
+                std.name = Console.ReadLine();
+
+                list_name.Add(std);
+
+            }
+
+        public static void show_data(){
+                foreach (Student i in list_name)
+                {
+                    Console.WriteLine($"Id is {i.id} \n name is {i.name}");
+                }
+            }
+
+        }
+        
+       
+
+    }
+
+}
